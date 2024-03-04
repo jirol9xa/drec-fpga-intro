@@ -9,4 +9,7 @@ module sign_ext(
 *   Describe sign extension logic.
 */
 
+wire [19:0]high_20 = {20{imm[11]}};
+assign ext_imm = {high_20, imm};
+
 endmodule
