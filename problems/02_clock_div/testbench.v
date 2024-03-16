@@ -22,12 +22,18 @@ end
 *   Create approprite wires to test it.
 */
 
+wire clk_out;
+
+clk_div clk_div(.clk(clk), .clk_out(clk_out));
+
 initial begin
     $dumpvars;      /* Open for dump of signals */
     /*
     *   Problem 2/3:
     *   Stop simulation after several cycles of your (divided) clock.
     */
+   $display("Test started...");
+   #2048 $finish;
 end
 
 endmodule
