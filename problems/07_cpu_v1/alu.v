@@ -7,10 +7,10 @@ module alu(
 );
 
 always @(*) begin
-/*
-* Problem 1:
-* Write operations execution logic here.
-*/
+    case (op)
+        2'b00: res = src_a;
+        2'b01: res = src_a + src_b;
+    endcase
 end
 
 endmodule
