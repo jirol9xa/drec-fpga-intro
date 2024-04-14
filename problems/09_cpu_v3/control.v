@@ -20,6 +20,7 @@ always @(*) begin
     imm12 = 12'b0;
     has_imm = 1'b0;
     mem_we = 1'b0;
+    branch = 1'b0;
 
     casez ({funct5, funct2, funct3, opcode})
         17'b?????_??_000_0010011: begin // ADDI

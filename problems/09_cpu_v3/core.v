@@ -61,7 +61,7 @@ reg_file rf(
 wire [11:0]imm12;
 wire [31:0]imm32 = {{20{imm12[11]}}, imm12};
 
-wire cmp_res = (alu_result != 0);
+wire cmp_res = alu_result != 0;
 wire branch_taken = branch & cmp_res;
 wire [31:0]branch_target = pc + imm32;
 wire branch;
