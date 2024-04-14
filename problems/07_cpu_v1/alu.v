@@ -8,8 +8,11 @@ module alu(
 
 always @(*) begin
     case (op)
-        2'b00: res = src_a;
-        2'b01: res = src_a + src_b;
+        3'b000: res = src_a;
+        3'b001: res = src_a + src_b;
+        3'b100: res = src_a ^ src_b;
+        3'b110: res = src_a | src_b;
+        3'b111: res = src_a & src_b;
     endcase
 end
 

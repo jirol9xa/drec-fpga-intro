@@ -32,7 +32,8 @@ wire [4:0]rf_waddr = rd;
 wire rf_we;
 
 wire [31:0]alu_result;
-wire [31:0]alu_b_src = imm32;
+wire is_r_type;
+wire [31:0]alu_b_src = is_r_type ? rf_rdata1 : imm32;
 wire [2:0]alu_op;
 alu alu(
     .src_a(rf_rdata0), .src_b(alu_b_src),
@@ -54,7 +55,8 @@ control control(
     .instr(instr),
     .imm12(imm12),
     .rf_we(rf_we),
-    .alu_op(alu_op)
+    .alu_op(alu_op),
+    .is_r_type(is_r_type)
 );
 
 endmodule
