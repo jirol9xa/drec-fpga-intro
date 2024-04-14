@@ -95,15 +95,18 @@ always @(*) begin
             $strobe("(%s) funct5 = %h, funct2 = %h, funct3 = %h, opcode = %h",
                 "BNE", funct5, funct2, funct3, opcode);
             imm12 = {instr[31], instr[31], instr[7], instr[30:25], instr[11:9]};
-            /*
-            *   Problem 2:
-            *   Drive other signals here
-            */
+            alu_op = 3'b100;
+            branch = 1'b1;
         end
-        /*
-        *   Problem 3:
-        *   Describe BEQ instruction here
-        */
+        17'b?????_??_000_1100011: begin // BEQ
+            $strobe("(%s) funct5 = %h, funct2 = %h, funct3 = %h, opcode = %h",
+                "BEQ", funct5, funct2, funct3, opcode);
+            imm12 = {instr[31], instr[31], instr[7], instr[30:25], instr[11:9]};
+            alu_op = 3'b111;
+            branch = 1'b1;
+        end
+
+        
         default: begin
             $strobe("(%s) funct5 = %h, funct2 = %h, funct3 = %h, opcode = %h",
                 "UNKNOWN INSTRUCTION", funct5, funct2, funct3, opcode);
