@@ -103,7 +103,7 @@ always @(*) begin
             $strobe("(%s) funct5 = %h, funct2 = %h, funct3 = %h, opcode = %h",
                 "BEQ", funct5, funct2, funct3, opcode);
             imm12 = {instr[31], instr[31], instr[7], instr[30:25], instr[11:9]};
-            alu_op = 3'b111;
+            alu_op = 3'b010;
             branch = 1'b1;
         end
 
